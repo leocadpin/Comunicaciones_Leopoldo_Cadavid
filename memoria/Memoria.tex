@@ -36,10 +36,12 @@ Leopoldo Cadavid Piñero
 
 \maketitle
 \tableofcontents
+
 \section{Introducción}
 
       En la siguiente memoria se procederá a explicar las pruebas y resultados obtenidos tras probar el uso de 
-      las APIS vistas en clase.\\
+      las APIS vistas en clase.
+      \\
 
       Primero veremos los ejemplos básicos dados en clase para el uso de estas APIS y programas para el manejo de estas:
 
@@ -150,17 +152,133 @@ Y aquí podemos ver la salida en la interfaz de la dashboard.
 La ampliación realizada para la práctica consiste en un bot de telegram que reune todas las APIS vistas y además hace uso de otras nuevas, como la de Telegram, 
 manejandolo todo desde Node Red. \\
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{BOTNODERED.png}
+    \caption{Flow de nodered del bot de telegram}
+    \label{elbot}
+\end{figure}
+
 \subsection{/info}
 
 Este comando proporciona un mensaje con información sobre el bot. Hace uso de
 los bloques receiver y sender de la api de telegram
-en nodered.
+en nodered.\\
 
-\subsection{/tiempo\_hoy}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{comandoinfo.png}
+    \caption{Ejemplo de la conversación con el comando /info}
+    \label{info}
+\end{figure}
+
+\subsection{/tiempo\_hoy}\label{ch:t_hoy}
+
+Comando que usa la api de Openweather para obtener el tiempo en la ciudad que se requiera. 
+El código utilizado para procesar la información y crear el mensaje es el siguiente:\\
+
+\begin{verbatim}
+    
+    variable = msg.payload
+    variable2 = variable.main.temp -273
+    variable2 = Math.round(variable2)
+    if(variable.weather[0].main == "Clouds"){
+        cielo = "nublado "
+    }
+    if(variable.weather[0].main == "Clear"){
+        cielo = "despejado "
+    }
+    if(variable.weather[0].main == "Rain"){
+        cielo = "lluvioso "
+    }
+    if(variable2<=10){
+        variable3= "";
+        
+    }else{
+        if(variable2<=20){
+            variable3= "";
+        }else{
+            variable3= "";
+        }
+        
+    }
+    msg.payload={
+        chatId: 1081269815,
+        type: "message",
+        content: "La temperatura en "+ variable.name + " es:  " 
+        + variable2 +  " grados centigrados " + variable3 + "\n" +
+        "Podemos ver el cielo " + cielo
+        
+    }
+    return msg;
+\end{verbatim}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{comandotiempo_hoy.png}
+    \caption{Tiempo en la ciudad de Granada}
+    \label{ebot_thoy}
+\end{figure}
 
 \subsection{/caracas}
 
-\subsection{/tiempo\_prediccion}
+Este comando realiza el mismo proceso que el anterior \ref{ch:t_hoy}, con la diferencia interna de que en vez de usar
+el nodo \verb|httpRequest| usaremos el propio nodo de la api de Openweather: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{tiempoCaracas.png}
+    \caption{Tiempo en la ciudad de Caracas, Venezuela}
+    \label{tencaracas}
+\end{figure}
+
+\subsection{/presio}
+
+En ejemplo hacemos uso de la api de REData para sacar el  precio actual del megavatio/hora:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{comandopRESIO.png}
+    \caption{Precio a día de hoy del megavatio}
+    \label{presio}
+\end{figure}
+
+\subsection{/cripto}
+
+Por último, se ha creado un comando que, conectando con el nodo de la API de Binance, nos da el precio y la variación en las últimas 
+24 horas de este. Veamos el código para procesar el mensaje:
+
+\begin{verbatim}
+    variable = msg.payload
+    if(variable.priceChangePercent <= 0){
+        cambio = ""
+        cambiado = "bajado "
+    }
+    else{
+        cambio = ""
+        cambiado = "subido "
+    }
+    msg.payload={
+        chatId: 1081269815,
+        type: "message",
+        content: "El precio de bitcoin es: " + variable.lastPrice + " dólares,"
+        + " el precio ha " + cambiado + cambio + "en las últimas 24 horas un " +
+        variable.priceChangePercent + " por ciento."
+    }
+    
+    return msg;
+
+\end{verbatim}    
+
+Y ahora podemos observar la conversación con el bot:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{comando_bitcoin.png}
+    \caption{Precio de bitcoin y variación}
+    \label{presiobtc}
+\end{figure}
 
 \section{Link al Github}
 Como se comentó en clase, se ha ido actualizando un repositorio de Github con las capturas JSON y códigos usados en la práctica para tener bien documentado todo en caso de que el profesor
