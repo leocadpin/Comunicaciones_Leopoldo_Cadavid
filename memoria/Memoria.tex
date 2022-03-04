@@ -123,6 +123,28 @@ Y cuando accedemos a la UI  de nodered observamos el resultado:
 
 \subsection{REData}
 
+La otra api que hemos usado en clase ha sido la del servicio REData, la cual proporciona 
+información relacionada con la red electrica española. En ella podemos obtener información de diversos 
+ámbitos (mercado, balances, importaciones...). En el siguiente ejemplo vemos una  implementación en nodered, usando el bloque httpRequest
+para sacar los archivos JSON. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{noderedportugal.png}
+    \caption{Flow de uso de REData}
+    \label{nodeport}
+\end{figure}
+
+Y aquí podemos ver la salida en la interfaz de la dashboard.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{graficasportugal.png}
+    \caption{Charts de las importaciones de energía desde Portugal en 2019 por meses}
+    \label{grafport}
+\end{figure}
+
 \section{Ampliaciones}
 
 La ampliación realizada para la práctica consiste en un bot de telegram que reune todas las APIS vistas y además hace uso de otras nuevas, como la de Telegram, 
@@ -133,5 +155,7 @@ Como se comentó en clase, se ha ido actualizando un repositorio de Github con l
 requiera consultarlo para la evaluacion de la práctica. el link al repositorio es el siguiente:\\
 
 \verb|https://github.com/leocadpin/Comunicaciones_Leopoldo_Cadavid|
+
+
 
 \end{document}

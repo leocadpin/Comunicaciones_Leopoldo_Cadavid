@@ -1,0 +1,7 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Ejemplo básicos}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Openweather}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}REData}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Ampliaciones}{7}{section.3}%
+\contentsline {section}{\numberline {4}Link al Github}{7}{section.4}%
