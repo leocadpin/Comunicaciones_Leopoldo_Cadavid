@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1646404159 "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.tex" "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.pdf" "Memoria" 1646404160
+["pdflatex"] 1646406711 "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.tex" "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.pdf" "Memoria" 1646406712
   "/etc/texmf/web2c/texmf.cnf" 1645144018 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.aux" 1646404160 2906 141dab2c1f5e9bc41a2fe38b4368ca3a ""
-  "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.tex" 1646404159 4876 7329b16fe3eea33fc68aa7511f5e5a88 ""
+  "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.aux" 1646406712 3378 1fd96ba641c4f3f4add92cbba5602bd4 ""
+  "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.tex" 1646406708 5126 a2d2b82433c1f8cc44e04a2b3e189b02 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -77,10 +77,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1645148520 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1645148542 8261170 fae12596ed6e02689a91d485608a5566 ""
-  "Memoria.aux" 1646404160 2906 141dab2c1f5e9bc41a2fe38b4368ca3a "pdflatex"
-  "Memoria.out" 1646404160 314 5f5c577e614fb2e011bdb1e54c0af486 "pdflatex"
-  "Memoria.tex" 1646404159 4876 7329b16fe3eea33fc68aa7511f5e5a88 ""
-  "Memoria.toc" 1646404160 451 7099b0ca591c2e22d5c6808ebc5f06e3 "pdflatex"
+  "Memoria.aux" 1646406712 3378 1fd96ba641c4f3f4add92cbba5602bd4 "pdflatex"
+  "Memoria.out" 1646406712 559 228e0571cb7b66014f125ca01c91991e "pdflatex"
+  "Memoria.tex" 1646406708 5126 a2d2b82433c1f8cc44e04a2b3e189b02 ""
+  "Memoria.toc" 1646406712 759 87ffc1e3cf0c2a42ec6d0c8d30951633 "pdflatex"
   "images2/alicantenav.png" 1646349122 58677 bb89ba1f8ba4883c3deb46680afe0a72 ""
   "images2/aliopencol.png" 1646349920 224599 a8b810c165fec91f7a6f0e5502f99fe6 ""
   "images2/flowcaracas.png" 1646350693 76208 a69b0b1344113dcc44638f098d9b424b ""
@@ -88,10 +88,10 @@
   "images2/graficasportugal.png" 1646402796 28421 f678ce8686e7255208a74f0bb75f6b28 ""
   "images2/noderedportugal.png" 1646402818 26718 764754c537dfc2b36f71d9d9873affe2 ""
   (generated)
+  "Memoria.out"
   "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.pdf"
   "/home/leo/Escritorio/coms/Practica_1_leopodo_cadavid/Comunicaciones_Leopoldo_Cadavid/memoria/Memoria.log"
   "Memoria.toc"
   "Memoria.aux"
   "Memoria.pdf"
   "Memoria.log"
-  "Memoria.out"

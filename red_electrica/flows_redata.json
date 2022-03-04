@@ -1,0 +1,322 @@
+[
+    {
+        "id": "d8e439bbc65eed8b",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "821c1c79533243ef",
+        "type": "inject",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "548df3f2c2237ffb"
+            ]
+        ]
+    },
+    {
+        "id": "548df3f2c2237ffb",
+        "type": "http request",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://apidatos.ree.es/es/datos/intercambios/portugal-frontera?start_date=2019-01-01T00:00&end_date=2019-12-31T23:59&time_trunc=month",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "d7e7b0c3e6108ec1"
+            ]
+        ]
+    },
+    {
+        "id": "d7e7b0c3e6108ec1",
+        "type": "json",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 300,
+        "wires": [
+            [
+                "fc095b01fea12d90",
+                "8e233a36fbb0971a"
+            ]
+        ]
+    },
+    {
+        "id": "fc095b01fea12d90",
+        "type": "debug",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8e233a36fbb0971a",
+        "type": "function",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "func": "variable=msg.payload\nmsg.payload=[{\n    \"series\": [\"Importaciones desde Portugal\"],\n    \"data\": [ \n            \n            \n            variable.included[1].attributes.values[0].value,\n            variable.included[1].attributes.values[1].value,\n            variable.included[1].attributes.values[2].value,\n            variable.included[1].attributes.values[2].value, \n            variable.included[1].attributes.values[3].value,\n            variable.included[1].attributes.values[4].value,\n            variable.included[1].attributes.values[5].value,\n            variable.included[1].attributes.values[6].value, \n            variable.included[1].attributes.values[7].value,\n            variable.included[1].attributes.values[8].value,\n            variable.included[1].attributes.values[9].value,\n            variable.included[1].attributes.values[10].value, \n            variable.included[1].attributes.values[11].value,\n            \n             \n            ],\n    \n    \n    \"labels\": [ \"Jan\", \"Feb\", \"Mar\", \"Abr\", \"May\", \"Jun\",\"Jul\",\"Ago\",\"Sep\",\"Oct\",\"Nov\",\"Dic\"]\n}];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 480,
+        "wires": [
+            [
+                "395e992be3f93543",
+                "b5666cdedb902baa",
+                "221129faac8f2c38"
+            ]
+        ]
+    },
+    {
+        "id": "395e992be3f93543",
+        "type": "debug",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "df8d6f97d62268b5",
+        "type": "inject",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 60,
+        "y": 1500,
+        "wires": [
+            [
+                "7da915838f321132"
+            ]
+        ]
+    },
+    {
+        "id": "7da915838f321132",
+        "type": "http request",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://apidatos.ree.es/es/datos/intercambios/andorra-frontera?start_date=2019-01-01T00:00&end_date=2019-01-31T23:59&time_trunc=day",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 230,
+        "y": 1500,
+        "wires": [
+            [
+                "704a9c30df8564a0"
+            ]
+        ]
+    },
+    {
+        "id": "704a9c30df8564a0",
+        "type": "json",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 370,
+        "y": 1560,
+        "wires": [
+            [
+                "6963269f2e2308b9"
+            ]
+        ]
+    },
+    {
+        "id": "6963269f2e2308b9",
+        "type": "debug",
+        "z": "d8e439bbc65eed8b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "b5666cdedb902baa",
+        "type": "ui_chart",
+        "z": "d8e439bbc65eed8b",
+        "name": "Importaciones de Portugal",
+        "group": "e1bc2349c37a04d9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "221129faac8f2c38",
+        "type": "ui_chart",
+        "z": "d8e439bbc65eed8b",
+        "name": "Importaciones de Portugal",
+        "group": "e1bc2349c37a04d9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "polar-area",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1bc2349c37a04d9",
+        "type": "ui_group",
+        "name": "222",
+        "tab": "1f09d00855c22199",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1f09d00855c22199",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

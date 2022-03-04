@@ -1,0 +1,4 @@
+api.openweathermap.org/data/2.5/weather?q={{payload.content}}&appid=339f553dbde09f5130892ce20de1dccf
+
+
+api.openweathermap.org/data/2.5/forecast?&q={{payload.content}=&appid=339f553dbde09f5130892ce20de1dccf
