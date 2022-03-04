@@ -1,0 +1,10 @@
+cripto - Precio y variación de Bitcoin
+presio - da el precio actual del megavatio en España
+hola - alo
+tiempo_prediccion - prediccion a 5 dias del clima
+info - información sobre el bot
+caracas - tiempo actual en Caracas
+tiempo_hoy - Da el tiempo en la ciudad que elijas
+
+
+https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=2022-03-04T00:00&end_date=2022-03-04T23:59&time_trunc=hour

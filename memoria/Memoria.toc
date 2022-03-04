@@ -4,8 +4,9 @@
 \contentsline {subsection}{\numberline {2.1}Openweather}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}REData}{6}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Ampliaciones}{7}{section.3}%
-\contentsline {subsection}{\numberline {3.1}/info}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}/info}{8}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}/tiempo\_hoy}{8}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}/caracas}{8}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}/tiempo\_prediccion}{8}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Link al Github}{8}{section.4}%
+\contentsline {subsection}{\numberline {3.3}/caracas}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}/presio}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}/cripto}{11}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Link al Github}{12}{section.4}%

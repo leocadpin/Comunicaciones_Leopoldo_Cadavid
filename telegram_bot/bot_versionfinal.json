@@ -1,0 +1,761 @@
+[
+    {
+        "id": "3a48b0dde1fc7e2e",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d0a8bab60a05a449",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "variable = msg.payload\nvariable2 = variable.tempc\n\nif(variable.weather == \"Clouds\"){\n    cielo = \"nublado ☁️☁️️️️️️️\"\n}\nif(variable.weather == \"Clear\"){\n    cielo = \"despejado ☀️☀️️️️️️️️\"\n}\nif(variable.weather == \"Rain\"){\n    cielo = \"lluvioso 🌧️🌧️️️️️️️️\"\n}\nif(variable2<=10){\n    variable3= \"🥶🥶\";\n    \n}else{\n    if(variable2<=20){\n        variable3= \"🍃🍃\";\n    }else{\n        variable3= \"🥵🥵\";\n    }\n    \n}\nmsg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"La temperatura en \"+ variable.location + \" es:  \" \n    + variable2 +  \" grados centigrados \" + variable3 + \"\\n\" +\n    \"Podemos ver el cielo \" + cielo\n    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 120,
+        "wires": [
+            [
+                "2782bb1423f8a6ed",
+                "caa4f0a981afa7d6"
+            ]
+        ]
+    },
+    {
+        "id": "2782bb1423f8a6ed",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a143c4b6b8c790cb",
+        "type": "openweathermap",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Caracas",
+        "country": "Venezuela",
+        "language": "en",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "d0a8bab60a05a449",
+                "2782bb1423f8a6ed"
+            ]
+        ]
+    },
+    {
+        "id": "caa4f0a981afa7d6",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "08888ff024fbd234",
+        "type": "telegram receiver",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 90,
+        "y": 480,
+        "wires": [
+            [
+                "6b86181adf05931c",
+                "6fb10c2b6cc82018"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6b86181adf05931c",
+        "type": "switch",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/caracas",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/hola",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/tiempo_hoy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/tiempo_prediccion",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "a143c4b6b8c790cb"
+            ],
+            [
+                "439794d8ece9e5c5"
+            ],
+            [
+                "f0e041832b75296e"
+            ],
+            [
+                "b6e12c8c08b9213f"
+            ]
+        ]
+    },
+    {
+        "id": "439794d8ece9e5c5",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "f2",
+        "func": "msg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"alo\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "caa4f0a981afa7d6"
+            ]
+        ]
+    },
+    {
+        "id": "88f7e38873ab09c6",
+        "type": "telegram command",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "/info",
+        "command": "/info",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "cc609c81148f0dd9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 660,
+        "wires": [
+            [
+                "c23ea1eafb9108d5",
+                "d01ba21217d666be"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c23ea1eafb9108d5",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "f3",
+        "func": "msg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"Primera versión de bot de telegram del alumno Leopoldo Cadavid\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 660,
+        "wires": [
+            [
+                "574e2fc890a891da"
+            ]
+        ]
+    },
+    {
+        "id": "f0e041832b75296e",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "msg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"¿De que ciudad quieres conocer el clima? \"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 300,
+        "wires": [
+            [
+                "17db96907b412198"
+            ]
+        ]
+    },
+    {
+        "id": "574e2fc890a891da",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f356bb1a290ce71f",
+        "type": "telegram reply",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "ceee8c1cc350ef7c"
+            ]
+        ]
+    },
+    {
+        "id": "17db96907b412198",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "f356bb1a290ce71f"
+            ]
+        ]
+    },
+    {
+        "id": "6f8c0bb4f2bd57ca",
+        "type": "http request",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "api.openweathermap.org/data/2.5/weather?q={{payload.content}}&appid=339f553dbde09f5130892ce20de1dccf",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1030,
+        "y": 340,
+        "wires": [
+            [
+                "c01e6d9c1bd78b10",
+                "ab5b9ea481418b57"
+            ]
+        ]
+    },
+    {
+        "id": "ceee8c1cc350ef7c",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "variable2 = msg.payload.content\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "e76f06775ac8f513",
+                "6f8c0bb4f2bd57ca"
+            ]
+        ]
+    },
+    {
+        "id": "c01e6d9c1bd78b10",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "variable = msg.payload\nvariable2 = variable.main.temp -273\nvariable2 = Math.round(variable2)\nif(variable.weather[0].main == \"Clouds\"){\n    cielo = \"nublado ☁️☁️️️️️️️\"\n}\nif(variable.weather[0].main == \"Clear\"){\n    cielo = \"despejado ☀️☀️️️️️️️️\"\n}\nif(variable.weather[0].main == \"Rain\"){\n    cielo = \"lluvioso 🌧️🌧️️️️️️️️\"\n}\nif(variable2<=10){\n    variable3= \"🥶🥶\";\n    \n}else{\n    if(variable2<=20){\n        variable3= \"🍃🍃\";\n    }else{\n        variable3= \"🥵🥵\";\n    }\n    \n}\nmsg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"La temperatura en \"+ variable.name + \" es:  \" \n    + variable2 +  \" grados centigrados \" + variable3 + \"\\n\" +\n    \"Podemos ver el cielo \" + cielo\n    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 360,
+        "wires": [
+            [
+                "5dd0f1910645c6ee"
+            ]
+        ]
+    },
+    {
+        "id": "5dd0f1910645c6ee",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1490,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e76f06775ac8f513",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "de2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ab5b9ea481418b57",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "15f63a5c42c012a4",
+        "type": "comment",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "Comando para dar información sobre el bot",
+        "info": "Comando para dar información sobre el bot",
+        "x": 320,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6fb10c2b6cc82018",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d01ba21217d666be",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "b6e12c8c08b9213f",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "msg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"¿De que ciudad quieres conocer la previsión? \"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "f8c65b5cbc7301c4"
+            ]
+        ]
+    },
+    {
+        "id": "f8c65b5cbc7301c4",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 440,
+        "wires": [
+            [
+                "4aa816b1a1404322"
+            ]
+        ]
+    },
+    {
+        "id": "4aa816b1a1404322",
+        "type": "telegram reply",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "x": 800,
+        "y": 440,
+        "wires": [
+            [
+                "e5713138ef648afb"
+            ]
+        ]
+    },
+    {
+        "id": "0fe9674f7a131ac6",
+        "type": "http request",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "api.openweathermap.org/data/2.5/forecast?q={{payload.content}}&appid=339f553dbde09f5130892ce20de1dccf",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1070,
+        "y": 460,
+        "wires": [
+            [
+                "69a765e60ae301e3"
+            ]
+        ]
+    },
+    {
+        "id": "69a765e60ae301e3",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e5713138ef648afb",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "variable2 = msg.payload.content\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 500,
+        "wires": [
+            [
+                "0fe9674f7a131ac6"
+            ]
+        ]
+    },
+    {
+        "id": "de0283c4d4cdc311",
+        "type": "telegram command",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "/cripto",
+        "command": "/cripto",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "cc609c81148f0dd9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 1000,
+        "wires": [
+            [
+                "2183a7aa50c9df64"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8edfc5dc0f27c5fc",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1170,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ccceab4f05f06449",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "12b3e5830daa4892",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "variable = msg.payload\nif(variable.priceChangePercent <= 0){\n    cambio = \"🔴\"\n    cambiado = \"bajado \"\n}\nelse{\n    cambio = \"🟢\"\n    cambiado = \"subido \"\n}\nmsg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"El precio de bitcoin es: \" + variable.lastPrice + \" dólares,\"\n    + \" el precio ha \" + cambiado + cambio + \"en las últimas 24 horas un \" +\n    variable.priceChangePercent + \" por ciento.\"\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 1020,
+        "wires": [
+            [
+                "8edfc5dc0f27c5fc"
+            ]
+        ]
+    },
+    {
+        "id": "2183a7aa50c9df64",
+        "type": "binance-get-day-stats",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "ticker": "BTCBUSD",
+        "x": 610,
+        "y": 1020,
+        "wires": [
+            [
+                "ccceab4f05f06449",
+                "12b3e5830daa4892"
+            ]
+        ]
+    },
+    {
+        "id": "21ca9a009025d107",
+        "type": "http request",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=2022-03-04T00:00&end_date=2022-03-04T23:59&time_trunc=hour",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "credentials": {},
+        "x": 510,
+        "y": 1140,
+        "wires": [
+            [
+                "7ea3ba6e77d16bb9"
+            ]
+        ]
+    },
+    {
+        "id": "7ea3ba6e77d16bb9",
+        "type": "json",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 730,
+        "y": 1140,
+        "wires": [
+            [
+                "b64c6b2bba9a25e2",
+                "d938e6ee2b0eec4d"
+            ]
+        ]
+    },
+    {
+        "id": "b64c6b2bba9a25e2",
+        "type": "debug",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "d938e6ee2b0eec4d",
+        "type": "function",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "func": "variable = msg.payload\n\nmsg.payload={\n    chatId: 1081269815,\n    type: \"message\",\n    content: \"El precio en € del megavatio/hora es: \" \n    + variable.included[0].attributes.values[0].value \n    \n \n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1220,
+        "wires": [
+            [
+                "acc9bfc14df188b2"
+            ]
+        ]
+    },
+    {
+        "id": "3d6e0ecd29c89ec1",
+        "type": "telegram command",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "command": "/presio",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "cc609c81148f0dd9",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 1160,
+        "wires": [
+            [
+                "21ca9a009025d107"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "acc9bfc14df188b2",
+        "type": "telegram sender",
+        "z": "3a48b0dde1fc7e2e",
+        "name": "",
+        "bot": "cc609c81148f0dd9",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1110,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc609c81148f0dd9",
+        "type": "telegram bot",
+        "botname": "leobot",
+        "usernames": "@panilo2013,@leocadpi",
+        "chatids": "1081269815",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "100",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
